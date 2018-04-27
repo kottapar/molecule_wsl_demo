@@ -14,7 +14,8 @@ To deploy the application you can select one of these options:
 3. Chef
 
 You should be able to:
-1. Spin up a WebServer of your choice;
+
+1. Spin up a WebServer of your choice
 2. Deploy the WAR file located in the directory assets named devopschallenge.war
 3. Manage and Install a Reverse Proxy with SSL;
 4. Write Unit and Integration Tests
