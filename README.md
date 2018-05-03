@@ -31,11 +31,11 @@ The evaluator will execute your code and it should be able to see a web applicat
 
 Requirements
 ------------
-The test page should be accessed thru this address:
+The test page should be accessed through this address:
 
 https://<host>/hello
 
-The server certicate can be Self Signed,
+The server certificate can be Self Signed,
 Tests should show that this page is reachable, you should provide a way to test your code: `kitchen`, `molecule`, `vagrant`, `docker`...
 
 Test Directions
@@ -56,7 +56,7 @@ branch you've picked.
 
 
 ## Format
-* You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, choosen tools.
+* You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, chosen tools.
 * Mention anything that was asked but not delivered and why, and any additional comments.
 * Any questions, please send an email to **sre.recruitment@wirecard.com**
 
