@@ -5,7 +5,7 @@ The task objective is to have a web application deployed using Infrastructure as
 
 The test gives you a WAR file containing a webapplication as the following image:
 
-![Example: Running Application](https://bitbucket.org/moip-recruitment/challenge-wirecard/raw/master/PageScreenshot.png)
+![Example: Running Application](https://bitbucket.org/wirecard_sre_recruitment/challenge/raw/master/PageScreenshot.png)
 
 To deploy the application you can select one of these options:
 
