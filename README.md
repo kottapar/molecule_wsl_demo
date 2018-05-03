@@ -3,7 +3,7 @@
 The challenge objective is to evaluate your logic and capacity to use one of the major configuration management tools.
 The task objective is to have a web application deployed using Infrastructure as Code backed by a Reverse Proxy running secured by SSL.
 
-The test gives you a WAR file containing a webapplication as the following image:
+The test gives you a WAR file containing a web application as the following image:
 
 ![Example: Running Application](https://bitbucket.org/wirecard_sre_recruitment/challenge/raw/master/PageScreenshot.png)
 
@@ -49,8 +49,7 @@ You should write all of your code inside the folder `challenge-wirecard`.
 ## Delivery Instructions
 1. You must provide your BitBucket username. A free BitBucket account can be created at http://bitbucket.org
 2. The recruiter will give you read permission to a repository named **challenge**, at https://bitbucket.org/wirecard_sre_recruitment/challenge
-3. You must fork this repository into a private repository on your own account and push your code in the config management
-branch you've picked.
+3. You must fork this repository into a private repository on your own account and push your code in the config management branch you've picked.
 4. Write all documentation and instructions to run the tests in the file challenge/README.md
 5. Once finished, you must give the user **wirecard_sre_recruitment** read permission on your repository and we can evaluate your code. 
 
