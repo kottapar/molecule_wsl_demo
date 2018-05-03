@@ -46,20 +46,19 @@ If you want to use ansible, for example, use the branch ansible: `git checkout a
 
 You should write all of your code inside the folder `challenge-wirecard`.
 
-
 ## Delivery Instructions
 1. You must provide your BitBucket username. A free BitBucket account can be created at http://bitbucket.org
-2. The recruiter will give you read permission to a repository named **challenge-wirecard**, at https://bitbucket.org/moip-recruitment/challenge-wirecard
+2. The recruiter will give you read permission to a repository named **challenge**, at https://bitbucket.org/wirecard_sre_recruitment/challenge
 3. You must fork this repository into a private repository on your own account and push your code in the config management
 branch you've picked.
-4. Write all documentation and instructions to run the tests in the file challenge-wirecard/README.md
-5. Once finished, you must give the user **moip-recruitment** read permission on your repository and we can evaluate your code. 
+4. Write all documentation and instructions to run the tests in the file challenge/README.md
+5. Once finished, you must give the user **wirecard_sre_recruitment** read permission on your repository and we can evaluate your code. 
 
 
 ## Format
 * You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, choosen tools.
 * Mention anything that was asked but not delivered and why, and any additional comments.
-* Any questions, please send an email to **recruitment.engineering@moip.com.br**
+* Any questions, please send an email to **sre.recruitment@wirecard.com**
 
 Thank you,
 The Wirecard Recruiting Team
