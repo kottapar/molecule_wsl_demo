@@ -3,7 +3,7 @@
 The challenge objective is to evaluate your logic and capacity to use one of the major configuration management tools.
 The task objective is to have a web application deployed using Infrastructure as Code backed by a Reverse Proxy running secured by SSL.
 
-The test gives you a WAR file containing a webapplication as the following image:
+The test gives you a WAR file containing a web application as the following image:
 
 ![Example: Running Application](https://bitbucket.org/wirecard_sre_recruitment/challenge/raw/master/PageScreenshot.png)
 
@@ -31,11 +31,11 @@ The evaluator will execute your code and it should be able to see a web applicat
 
 Requirements
 ------------
-The test page should be accessed thru this address:
+The test page should be accessed through this address:
 
 https://<host>/hello
 
-The server certicate can be Self Signed,
+The server certificate can be Self Signed,
 Tests should show that this page is reachable, you should provide a way to test your code: `kitchen`, `molecule`, `vagrant`, `docker`...
 
 Test Directions
@@ -47,16 +47,14 @@ If you want to use ansible, for example, use the branch ansible: `git checkout a
 You should write all of your code inside the folder `challenge-wirecard`.
 
 ## Delivery Instructions
-1. You must provide your BitBucket username. A free BitBucket account can be created at http://bitbucket.org
-2. The recruiter will give you read permission to a repository named **challenge**, at https://bitbucket.org/wirecard_sre_recruitment/challenge
-3. You must fork this repository into a private repository on your own account and push your code in the config management
-branch you've picked.
-4. Write all documentation and instructions to run the tests in the file challenge/README.md
-5. Once finished, you must give the user **wirecard_sre_recruitment** read permission on your repository and we can evaluate your code. 
+1. You must create your own BitBucket username, if you don't have one. A free BitBucket account can be created at http://bitbucket.org
+2. You must fork the https://bitbucket.org/wirecard_sre_recruitment/challenge repository into a private repository on your own account and push your code in the config management branch you've picked.
+3. Write all documentation and instructions to run the tests in the file challenge-wirecard/README.md
+4. Once finished, you must give the user **wirecard_sre_recruitment** read permission on your repository and we can evaluate your code.
 
 
 ## Format
-* You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, choosen tools.
+* You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, chosen tools.
 * Mention anything that was asked but not delivered and why, and any additional comments.
 * Any questions, please send an email to **sre.recruitment@wirecard.com**
 
