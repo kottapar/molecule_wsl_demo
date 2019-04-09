@@ -1,10 +1,12 @@
-
+# Playbook to install nginx and create SSL certs
+#
+---
 - name: Disabling selinux
   selinux:
     state: disabled
 
 - name: stop and disable firewalld
-  service: 
+  service:
     name: firewalld
     state: stopped
     enabled: no
@@ -27,23 +29,11 @@
     state: started
     enabled: yes
 
-    #- name: create sites-available dir
-    #  file:
-    #    path: "{{ nginx_sites_avail }}"
-    #    state: directory
-    #    mode: 755
-
 - name: copy ssl.conf to the nginx server
   template:
     src: ssl.conf
     dest: "{{ nginx_confd }}"
   notify: restart nginx
-
-  #- name: copy nginx-tomcat.conf to the sites-available dir
-  #  copy:
-  # src: nginx-tomcat.conf
-  # dest: "{{ nginx_sites_avail }}"
-
 
 ####### Create the SSL cert and keys #######
 #
@@ -60,7 +50,10 @@
 
 - name: generate self-signed SSL certificate
   command:
-    openssl req -x509 -subj "{{ nginx_ssl_certificate_subject }}" -nodes -days {{ nginx_ssl_certificate_days }} -newkey rsa:2048 -keyout {{ nginx_ssl_certificate_key }} -out {{ nginx_ssl_certificate }}
+    openssl req -x509 -subj "{{ nginx_ssl_certificate_subject }}"
+    -nodes -days {{ nginx_ssl_certificate_days }}
+    -newkey rsa:2048 -keyout {{ nginx_ssl_certificate_key }}
+    -out {{ nginx_ssl_certificate }}
   args:
     creates: "{{ nginx_ssl_certificate }}"
   notify: restart nginx

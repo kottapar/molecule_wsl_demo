@@ -1,6 +1,6 @@
 ---
 
-- name: Install Java 
+- name: Install Java
   yum:
     name: "{{ java_package }}"
     state: present
@@ -68,5 +68,5 @@
 # wait for tomcat service to come up
 - name: wait for tomcat to start
   wait_for:
-    port: "{{http_port}}"
+    port: "{{ http_port }}"
     timeout: 60

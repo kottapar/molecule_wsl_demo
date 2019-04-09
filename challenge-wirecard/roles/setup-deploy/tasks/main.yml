@@ -1,7 +1,7 @@
 ---
 # This role includes tasks to:
 #       setup tomcat
-#       deploy the war file 
+#       deploy the war file
 #       setup nginx with SSL
 #
 
@@ -16,10 +16,9 @@
   register: app_war_file
 
 - include: setup-tomcat.yml
-  when: catalina_script.stat.exists == false
+  when: not catalina_script.stat.exists
 
 - include: deploy-war.yml
-  when: app_war_file.stat.exists == false
+  when: not app_war_file.stat.exists
 
 - include: setup-nginx.yml
-

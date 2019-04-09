@@ -2,8 +2,8 @@
 - name: Converge
   hosts: all
   vars:
-# added the remote_user: ansible here. adding it to molecule config did not work.
-# It was advised in a githib issue not to add become vars in molecule.yml
+    # added the remote_user: ansible here. adding it to molecule config did not work.
+    # It was advised in a githib issue not to add become vars in molecule.yml
     ansible_user: ansible
   become: yes
   become_method: sudo

@@ -23,7 +23,10 @@ def test_svc(host, svc):
 
 
 def test_files_exists(host):
-    conf_files = [ '/etc/systemd/system/tomcat.service', '/etc/ssl/certs/server.crt', '/etc/ssl/private/server.key', '/etc/nginx/conf.d/ssl.conf' ]
+    conf_files = ['/etc/systemd/system/tomcat.service',
+                  '/etc/ssl/certs/server.crt',
+                  '/etc/ssl/private/server.key',
+                  '/etc/nginx/conf.d/ssl.conf']
     for f in conf_files:
         fl = host.file(f)
         assert fl.exists
@@ -39,11 +42,12 @@ def test_tomcat_sock(host):
     assert host.socket("tcp://:::8080").is_listening
 
 
-# The verification of the SSL cert is turned off because the cert was created with the IP assigned to the VM
-# However I haven't yet figured how to get the ansible_host_ipv4.address from the facts imported here. So using the localhost.
+# The verification of the SSL cert is turned off because
+# the cert was created with the IP assigned to the VM
+# However I haven't yet figured how to get the ansible_host_ipv4.address
+# from the facts imported here. So using the localhost.
 def verify_hello():
     url = 'https://127.0.0.1/hello'
     r = requests.get(url, verify=False)
     assert r.status_code == 200
     assert "Hello from Wirecard DevOps Challenge!!" in r.text
-
