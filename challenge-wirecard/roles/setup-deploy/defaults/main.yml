@@ -40,9 +40,8 @@ war_dest: /usr/local/tomcat/webapps
 # nginx conf.d dir
 nginx_confd: /etc/nginx/conf.d
 
-# nginx sites-available dir
-nginx_sites_avail: /etc/nginx/sites-available
-
+######### vars for SSL cert generation #########
+#
 # Certificate subject
 nginx_ssl_certificate_subject: "/C=IN/ST=Disney/L=Land/O=RaviInc/CN={{ ansible_default_ipv4.address }}"
 

@@ -23,5 +23,7 @@ provisioner:
     name: ansible-lint
 verifier:
   name: testinfra
+  options:
+    sudo: true
   lint:
     name: flake8
