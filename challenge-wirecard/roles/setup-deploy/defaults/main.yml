@@ -1,0 +1,56 @@
+---
+# vars file for setting up tomcat and deploying web app
+
+# java package name
+java_package: java-1.8.0-openjdk
+
+# tomcat http application port
+http_port: 8080
+
+# tomcat https application port
+https_port: 8443
+
+# tomcat package download url
+tomcat_package_url: https://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.17/bin/apache-tomcat-9.0.17.tar.gz
+
+# tomcat package name
+tomcat_package_name: apache-tomcat-9.0.17
+
+# symlink from /opt to /usr
+tomcat_symlink: /usr/local/tomcat
+
+# tomcat conf dir for users.xml file
+tomcat_conf: /usr/local/tomcat/conf
+
+
+######### vars for web app #########
+
+# Application war source
+war_src: "{{ role_path }}/../../../assets/devopschallenge.war"
+
+# war name
+war_file: devopschallenge.war
+
+# remote war file
+war_dest: /usr/local/tomcat/webapps
+
+
+######### vars for nginx #########
+
+# nginx conf.d dir
+nginx_confd: /etc/nginx/conf.d
+
+# nginx sites-available dir
+nginx_sites_avail: /etc/nginx/sites-available
+
+# Certificate subject
+nginx_ssl_certificate_subject: "/C=IN/ST=Disney/L=Land/O=RaviInc/CN={{ ansible_default_ipv4.address }}"
+
+# Certificate validity (days)
+nginx_ssl_certificate_days: 365
+
+# Server path to SSL certificate
+nginx_ssl_certificate: /etc/ssl/certs/server.crt
+
+# Server path to SSL certificate key
+nginx_ssl_certificate_key: /etc/ssl/private/server.key

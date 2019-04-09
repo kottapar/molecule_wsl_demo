@@ -1,0 +1,25 @@
+---
+# This role includes tasks to:
+#       setup tomcat
+#       deploy the war file 
+#       setup nginx with SSL
+#
+
+- name: check for an existing tomcat installation
+  stat:
+    path: "{{ tomcat_symlink }}/bin/catalina.sh"
+  register: catalina_script
+
+- name: check if the war is already deployed
+  stat:
+    path: "{{ war_dest }}/{{ war_file }}"
+  register: app_war_file
+
+- include: setup-tomcat.yml
+  when: catalina_script.stat.exists == false
+
+- include: deploy-war.yml
+  when: app_war_file.stat.exists == false
+
+- include: setup-nginx.yml
+

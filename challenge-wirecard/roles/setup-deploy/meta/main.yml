@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Ravi
+  description: Setup the web server for the app
+  company: Ravi Inc
+  license: GPLv2
+  min_ansible_version: 1.2
+  platforms:
+    - name: Centos7

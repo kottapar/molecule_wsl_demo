@@ -1,0 +1,72 @@
+---
+
+- name: Install Java 
+  yum:
+    name: "{{ java_package }}"
+    state: present
+
+- name: Install unzip
+  yum:
+    name: unzip
+    state: present
+
+- name: Create Group "tomcat"
+  group:
+    name: tomcat
+
+- name: Create User "tomcat"
+  user:
+    name: tomcat
+    group: tomcat
+    createhome: no
+    shell: /sbin/nologin
+
+- name: Download and Extract Tomcat archive
+  unarchive:
+    src: "{{ tomcat_package_url }}"
+    dest: /opt/
+    remote_src: yes
+
+- name: Symlink install directory
+  file:
+    src: "/opt/{{ tomcat_package_name }}"
+    path: "{{ tomcat_symlink }}"
+    state: link
+
+- name: Change ownership of Tomcat installation
+  file:
+    path: "{{ tomcat_symlink }}"
+    owner: tomcat
+    group: tomcat
+    state: directory
+    recurse: yes
+
+- name: Configure Tomcat users
+  copy:
+    src: tomcat-users.xml
+    dest: "{{ tomcat_conf }}"
+  notify: restart tomcat
+
+- name: Install Tomcat init script
+  template:
+    src: tomcat.service
+    dest: /etc/systemd/system
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Reload systemd daemon
+  systemd:
+    daemon_reload: yes
+  ignore_errors: true
+
+- name: Start Tomcat
+  service:
+    name: tomcat
+    state: started
+
+# wait for tomcat service to come up
+- name: wait for tomcat to start
+  wait_for:
+    port: "{{http_port}}"
+    timeout: 60

@@ -1,0 +1,18 @@
+---
+# deploy the war to tomcat web server
+
+- name: Copy and deploy the war file
+  copy:
+    src: "{{ war_src }}"
+    dest: "{{ war_dest }}/{{ war_file }}"
+    mode: 0755
+    owner: tomcat
+    group: tomcat
+  notify: restart tomcat
+    
+
+# wait for tomcat service to come up
+- name: wait for tomcat to start
+  wait_for:
+    port: "{{http_port}}"
+    timeout: 60

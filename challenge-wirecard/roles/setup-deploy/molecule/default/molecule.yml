@@ -1,0 +1,27 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: gce
+lint:
+  name: yamllint
+platforms:
+  - name: gce-instance
+    zone: europe-west1-b
+    machine_type: g1-small
+    image: centos-7
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      remote_user: ansible
+    ssh_connection:
+      ssh_args: -o StrictHostKeyChecking=no -i ~/.ssh/google_compute_engine -o User=ansible 
+      pipelining: true
+      timeout: 300
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

@@ -1,0 +1,12 @@
+---
+# handler to restart tomcat if new war file is copied
+#
+- name: restart tomcat
+  service:
+    name: tomcat
+    state: restarted
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
