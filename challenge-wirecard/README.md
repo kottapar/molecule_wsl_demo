@@ -2,7 +2,9 @@
 
 This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 compute instance on Google Cloud Platform (GCP).
 
-Clone the 'wirecard_challenge' repo from the ansible branch. 
+Clone the 'wirecard_challenge' repo from the ansible branch.
+
+`root@ubuntu:~/home/abc# git clone -b ansible https://bitbucket.org/kottapar/wirecard_challenge`
 
 Pre-requisites
 --------------
