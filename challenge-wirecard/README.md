@@ -34,9 +34,11 @@ Export the below environment variables. They're required by Molecule to spin up 
 
 First steps
 -----------
-We're using the Ansible dynamic inventory to specify the host against which we'll run this role. Go to GCP and provision a Centos7 VM. Make sure you scroll down and enable the 'Allow HTTP' and 'Allow HTTPS' rules. Now run `./inventory/gce.py --list --pretty`
+We're using the Ansible dynamic inventory to specify the host against which we'll run this role. Go to GCP and provision a n1-standard-1 with a Centos7 image.
 
-You should see a listing of your GCP instance details.You can also try doing a ping test using Ansible.
+Make sure you scroll down and enable the 'Allow HTTP' and 'Allow HTTPS' rules. 
+
+Now run `./inventory/gce.py --list --pretty` You should see a listing of your GCP instance details.You can also try doing a ping test using Ansible.
 
 `(my_env) root@ubuntu:/challenge-wirecard#  ansible -i inventory/ vm01 -m ping`
 
