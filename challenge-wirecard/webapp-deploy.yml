@@ -1,7 +1,5 @@
 ---
 - name: WEB APP DEPLOYMENT
   hosts: all
-
   roles:
     - role: setup-deploy
-
