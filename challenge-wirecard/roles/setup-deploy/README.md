@@ -1,40 +1,60 @@
-Role Name
-=========
+setup-deploy
+============
 
-A brief description of the role goes here.
+This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 compute instance on Google Cloud Platform (GCP).
+
+The three tasks of creating a web server, deploying the app and the setting up of reverse proxy are included as tasks in this role. This is to enable testing of the full stack.
+
+If we have three separate roles, Molecule will spin up a different instance for each and we may not be test the setup as intended. Hence the single role.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+Ensure the pre-requisites mentioned in the main page are met.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+Tomcat9 is selected as the webserver. Here's a brief of the vars in defaults/main.yml
 
-Dependencies
-------------
+`java_package       - Pre-requisite package for Tomcat`
+ 
+`tomcat_package_url - The URL from which to download the package`
+ 
+`tomcat_symlink     - A generic directory path which will be linked to the Tomcat installation in /opt`
+ 
+Webapp variables
+ 
+ `war_src  - The location of the war file`
+ 
+ `war_dest - The webapps dir of Tomcat to which the war is to be deployed`
+  
+Nginx and SSL variables
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+`nginx_confd                   - The default nginx conf.d dir. We'll use this to copy the ssl.conf file`
+ 
+ `nginx_ssl_certificate_subject - The subject to use when generating SSL certs`
+ 
+ `nginx_ssl_certificate         - The path openssl command will use to save the cert`
+ 
+ `nginx_ssl_certificate_key     - The path openssl command will use to save the key`
+
+Testing the role
+----------------
+
+We're using Molecule with Testinfra as the verifier to perform unit and integration tests. Run `molecule test` to run create an instance, run our tests on it and then destroy it.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+The role can be called as below from the main playbook. 
 
-    - hosts: servers
-      roles:
-         - { role: setup-httpd, x: 42 }
+`---
+- name: WEB APP DEPLOYMENT
+  hosts: all
+  roles:
+    - role: setup-deploy`    
+
 
 License
 -------
