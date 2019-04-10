@@ -48,7 +48,9 @@ Traverse to the directory `..challenge-wirecard/roles/setup-deploy`. From this p
 
 Deploying the role
 ------------------
-Once the tests are done we can proceed to deploy our role on the VM in GCP. Traverse to the directory challenge-wirecard and run `ansible-playbook -i inventory/ vm01 webapp-deploy.yml`
+Once the tests are done we can proceed to deploy our role on the VM in GCP. Traverse to the directory challenge-wirecard and run 
+
+`ansible-playbook -i inventory/ vm01 webapp-deploy.yml`
 
 Once the deployment is successful, head over to your GCP console -> Compute engine -> VM instances and copy the external ip of the VM. Then in a browser tab navigate to `https://<ip>/hello`
 
