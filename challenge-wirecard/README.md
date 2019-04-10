@@ -38,11 +38,7 @@ We're using the Ansible dynamic inventory to specify the host against which we'l
 
 You should see a listing of your GCP instance details.You can also try doing a ping test using Ansible.
 
-`(my_env) root@ubuntu:/challenge-wirecard#  ansible -i inventory/ vm01 -m ping
-wirevm01 | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-}`
+`(my_env) root@ubuntu:/challenge-wirecard#  ansible -i inventory/ vm01 -m ping`
 
 Testing the role
 ----------------
