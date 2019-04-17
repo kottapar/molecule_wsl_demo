@@ -7,13 +7,15 @@ It is intended to configure an existing instance and so no step was added for th
 Before you start
 ----------------
 
-  Clone the 'wirecard_challenge' repo from the ansible branch.
+Clone the 'wirecard_challenge' repo from the ansible branch and change directory to wirecard_challenge
 
-  `root@ubuntu:~/home/abc# git clone -b ansible https://bitbucket.org/kottapar/wirecard_challenge`
+`root@ubuntu:~/home/abc# git clone -b ansible https://bitbucket.org/kottapar/wirecard_challenge`
 
 Pre-requisites
 --------------
-Install Python3 and create a virtual environment to start working.
+In order to run the tests on our role we'll install Molecule and Ansible in a Python virtualenv. Complete the below steps.
+
+Install Python3 and create a virtual environment.
 
 `python3 -m venv my_env`
 
