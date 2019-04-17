@@ -2,9 +2,14 @@
 
 This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 compute instance on Google Cloud Platform (GCP).
 
-Clone the 'wirecard_challenge' repo from the ansible branch.
+It is intended to configure an existing instance and so no step was added for the creation of the instance. The focus of this exercise is geared more towards testing and deploying the intended role.
 
-`root@ubuntu:~/home/abc# git clone -b ansible https://bitbucket.org/kottapar/wirecard_challenge`
+Before you start
+----------------
+
+  Clone the 'wirecard_challenge' repo from the ansible branch.
+
+  `root@ubuntu:~/home/abc# git clone -b ansible https://bitbucket.org/kottapar/wirecard_challenge`
 
 Pre-requisites
 --------------
@@ -44,7 +49,9 @@ Now run `./inventory/gce.py --list --pretty` You should see a listing of your GC
 
 Testing the role
 ----------------
-Traverse to the directory `..challenge-wirecard/roles/setup-deploy`. From this path you can run the molecule commands to test the role. Run `molecule test`
+Traverse to the directory `..challenge-wirecard/roles/setup-deploy`. From this path you can run the molecule commands to test the role. 
+
+Run `molecule test` to test the role. 
 
 Deploying the role
 ------------------
