@@ -21,6 +21,7 @@ def test_svc(host, svc):
     assert service.is_running
     assert service.is_enabled
 
+
 # check if the ssl certs and tomcat service files exist
 def test_files_exists(host):
     conf_files = ['/etc/systemd/system/tomcat.service',
@@ -31,7 +32,8 @@ def test_files_exists(host):
         fl = host.file(f)
         assert fl.exists
 
-# The services might've been started. But are they listening? 
+
+# The services might've been started. But are they listening?
 def test_http_sock(host):
     for p in ("tcp://0.0.0.0:80", "tcp://0.0.0.0:443"):
         sock = host.socket(p)
