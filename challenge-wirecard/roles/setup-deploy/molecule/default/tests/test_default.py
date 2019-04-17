@@ -14,7 +14,7 @@ def test_pkg(host, pkg):
     assert package.is_installed
 
 # Check if the required services are running and enabled.
-@pytest.mark.parametrize('svc', ['nginx', 'tomcat'])
+@pytest.mark.parametrize('svc', ['nginx'])
 def test_svc(host, svc):
     service = host.service(svc)
 
