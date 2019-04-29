@@ -1,12 +1,12 @@
 ---
 
 - name: Install Java
-  yum:
+  package:
     name: "{{ java_package }}"
     state: present
 
 - name: Install unzip
-  yum:
+  package:
     name: unzip
     state: present
 

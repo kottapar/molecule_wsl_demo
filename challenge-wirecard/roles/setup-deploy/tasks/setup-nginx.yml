@@ -1,6 +1,7 @@
 # Playbook to install nginx and create SSL certs
 #
 ---
+
 - name: Disabling selinux
   selinux:
     state: disabled
@@ -19,7 +20,7 @@
     gpgkey: https://nginx.org/keys/nginx_signing.key
 
 - name: Install nginx server
-  yum:
+  package:
     name: nginx
     state: present
 
@@ -38,7 +39,7 @@
 ####### Create the SSL cert and keys #######
 #
 - name: install openssl
-  yum:
+  package:
     name: openssl
     state: present
 
