@@ -1,5 +1,5 @@
 # Challenge Wirecard
-# update: Check the challenge-wirecard dir
+## update: Check the challenge-wirecard dir
 
 The challenge objective is to evaluate your logic and capacity to use one of the major configuration management tools.
 The task objective is to have a web application deployed using Infrastructure as Code backed by a Reverse Proxy running secured by SSL.
