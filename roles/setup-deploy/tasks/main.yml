@@ -5,6 +5,9 @@
 #       setup nginx with SSL
 #
 
+- include: undeploy-war.yml
+  when: undeploy == "yes"
+
 - name: check for an existing tomcat installation
   stat:
     path: "{{ tomcat_symlink }}/bin/catalina.sh"

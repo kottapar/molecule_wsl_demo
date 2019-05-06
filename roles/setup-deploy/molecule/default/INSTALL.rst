@@ -1,11 +1,12 @@
 *******
-Google Cloud Engine driver installation guide
+Vagrant driver installation guide
 *******
 
 Requirements
 ============
 
-* A GCE credentials rc file
+* Vagrant
+* Virtualbox, Parallels, VMware Fusion, VMware Workstation or VMware Desktop
 
 Install
 =======
@@ -19,4 +20,4 @@ widely recommended `'--user' flag`_ when invoking ``pip``.
 
 .. code-block:: bash
 
-    $ pip install 'molecule[gce]'
+    $ pip install 'molecule[vagrant]'

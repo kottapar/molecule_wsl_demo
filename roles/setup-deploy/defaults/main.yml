@@ -1,6 +1,11 @@
 ---
 # vars file for setting up tomcat and deploying web app
 
+# Set the below variable to "yes" to undeploy the existing
+# package and deploy again
+#
+undeploy: "no"
+
 # java package name
 java_package: java-1.8.0-openjdk
 
@@ -26,10 +31,10 @@ tomcat_conf: /usr/local/tomcat/conf
 ######### vars for web app #########
 
 # Application war source
-war_src: "{{ role_path }}/../../../assets/devopschallenge.war"
+war_src: "{{ role_path }}/../app.war"
 
 # war name
-war_file: devopschallenge.war
+war_file: app.war
 
 # remote war file
 war_dest: /usr/local/tomcat/webapps

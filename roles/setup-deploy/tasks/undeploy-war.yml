@@ -1,0 +1,23 @@
+---
+# undeploy the war file if present in tomcat webapps
+
+- name: Stop tomcat service
+  service:
+    name: tomcat
+    state: stopped
+
+- name: Undeploy the war file
+  file:
+    path: "{{ war_dest }}/{{ war_file }}"
+    state: absent
+
+- name: restart tomcat
+  service:
+    name: tomcat
+    state: restarted
+
+# wait for tomcat service to come up
+- name: wait for tomcat to start
+  wait_for:
+    port: "{{ http_port }}"
+    timeout: 60

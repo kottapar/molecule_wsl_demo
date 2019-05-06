@@ -1,63 +1,71 @@
-# Challenge Wirecard
-## update: Check the challenge-wirecard dir
+# Wirecard Configuration Management Challenge
 
-The challenge objective is to evaluate your logic and capacity to use one of the major configuration management tools.
-The task objective is to have a web application deployed using Infrastructure as Code backed by a Reverse Proxy running secured by SSL.
+This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 instance on Vagrant.
 
-The test gives you a WAR file containing a web application as the following image:
+[Molecule](https://molecule.readthedocs.io/en/stable/index.html) will be used to test the role against a Vagrant VM..
 
-![Example: Running Application](https://bitbucket.org/wirecard_sre_recruitment/challenge/raw/master/PageScreenshot.png)
+Getting started
+---------------
+Clone the repo to get started
 
-To deploy the application you can select one of these options:
+`git clone https://github.com/kottapar/molecule_wsl_demo.git`
 
-1. Ansible
-2. Puppet
-3. Chef
+In order to run the tests on our role we'll install Molecule and Ansible in a Python virtualenv. Login to your VM and complete the below steps.
 
-You should be able to:
+Install Python3, python3-dev and python3-venv using your package manager and create a virtual environment.
 
-1. Spin up a WebServer of your choice
-2. Deploy the WAR file located in the directory assets named devopschallenge.war
-3. Manage and Install a Reverse Proxy with SSL;
-4. Write Unit and Integration Tests
- 
-The evaluator will check out your repository and will review:
+`python3 -m venv my_env`
 
-1. Code design
-2. Best practices
-3. Outcomes achievement
-4. Your tests
+Source the newly created environment
 
-The evaluator will execute your code and it should be able to see a web application running,
+`source my_env/bin/activate`
 
-Requirements
-------------
-The test page should be accessed through this address:
+Use pip to install the requirements. This installs Molecule which installs Ansible as a dependency.
 
-https://<host>/hello
+`pip install -r requirements.txt`
 
-The server certificate can be Self Signed,
-Tests should show that this page is reachable, you should provide a way to test your code: `kitchen`, `molecule`, `vagrant`, `docker`...
+---
 
-Test Directions
+PREREQUISITES
+-------------
+If you're on a Linux VM and would like to test the role locally, ensure that your hypervisor supports nested virtualization.
+
+If you are using Virtualbox, note that nested virtualization is not supported for Intel chipsets yet.
+
+If you're on Windows 10, then install the Windows subsystem for Linux (WSL) from the [Microsoft store](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q).
+
+Vagrant prerequisites
+---------------------
+1.  If your VM supports nested virtualization then:
+    * Install [Virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html) 
+    
+2.  However if your VM can't spin up Vagrant VMs on Virtualbox, then WSL is the way forward:
+    * Install the Windows subsystem for Linux (WSL) from the [Microsoft store](https://www.microsoft.com/store/productId/9N9TNGVNDL3Q).
+    * Install [Vagrant](https://www.vagrantup.com/downloads.html) in WSL. 
+    * Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/downloads.html) on your Windows 10 machine.
+        *  **NOTE**: Make sure you install the same version of Vagrant in WSL and the Windows machine
+    * Execute `pip3 install python-vagrant` to install the python module for Vagrant if it's not already installed.
+    * Execute `export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"` to enable WSL to use the Virtualbox from the Windows system.
+    * Execute `export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox:/mnt/c/Windows/System32:/mnt/c/Windows/system32/WindowsPowerShell/v1.0"` to provide the paths to the Virtualbox, cmd and powershell executables.
+    * For more info refer to the Vagrant WSL documentation [here](https://www.vagrantup.com/docs/other/wsl.html)
+
+---
+
+Testing the role
 ----------------
-There is one branch for each configuration management tool.
+Scenarios
+---------
+Molecule uses [Scenarios](https://molecule.readthedocs.io/en/stable/getting-started.html#molecule-scenarios) to test the role against the Infra we define. We currently have two scenarios defined.
 
-If you want to use ansible, for example, use the branch ansible: `git checkout ansible`
+1.  default 
+    * This scenario can be used if you'd like to test the role locally by spinning up a Vagrant VM in Virtualbox.
+    * If you'd like to use this, then complete the `Vagrant pre-requisites`.
 
-You should write all of your code inside the folder `challenge-wirecard`.
+Vagrant
+-------
+Traverse to the directory `/roles/setup-deploy`. From this path you can run the molecule commands to test the role.
 
-## Delivery Instructions
-1. You must create your own BitBucket username, if you don't have one. A free BitBucket account can be created at http://bitbucket.org
-2. You must fork the https://bitbucket.org/wirecard_sre_recruitment/challenge repository into a private repository on your own account and push your code in the config management branch you've picked.
-3. Write all documentation and instructions to run the tests in the file challenge-wirecard/README.md
-4. Once finished, you must give the user **wirecard_sre_recruitment** read permission on your repository and we can evaluate your code.
+Ensure that `VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"` and PATH variables are exported. If not export them.
 
+Run `molecule test --destroy never` to test the role. The `--destroy never` ensures that the Vagrant VM is not removed once the tests are completed.
 
-## Format
-* You must be prepared to walk an evaluator through all the created artifacts including tests, logic used, chosen tools.
-* Mention anything that was asked but not delivered and why, and any additional comments.
-* Any questions, please send an email to **sre.recruitment@wirecard.com**
-
-Thank you,
-The Wirecard Recruiting Team

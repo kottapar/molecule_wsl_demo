@@ -1,0 +1,26 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+  config_options:
+    defaults:
+      remote_user: vagrant
+    ssh_connection:
+      pipelining: true
+      timeout: 300
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    box: centos/7
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
