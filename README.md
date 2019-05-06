@@ -1,4 +1,4 @@
-# Wirecard Configuration Management Challenge
+# Ansible role testing with Molecule and Vagrant using WSL
 
 This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 instance on Vagrant.
 
