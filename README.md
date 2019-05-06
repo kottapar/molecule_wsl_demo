@@ -2,7 +2,7 @@
 
 This role is created to deploy a Tomcat9 web server behind a Nginx reverse proxy. The infrastructure choosen is a Centos7 instance on Vagrant.
 
-[Molecule](https://molecule.readthedocs.io/en/stable/index.html) will be used to test the role against a Vagrant VM..
+[Molecule](https://molecule.readthedocs.io/en/stable/index.html) will be used to test the role against a Vagrant VM.
 
 Getting started
 ---------------
