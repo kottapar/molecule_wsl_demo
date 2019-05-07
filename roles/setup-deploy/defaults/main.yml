@@ -31,7 +31,7 @@ tomcat_conf: /usr/local/tomcat/conf
 ######### vars for web app #########
 
 # Application war source
-war_src: "{{ role_path }}/../app.war"
+war_src: "{{ role_path }}/../../app.war"
 
 # war name
 war_file: app.war
