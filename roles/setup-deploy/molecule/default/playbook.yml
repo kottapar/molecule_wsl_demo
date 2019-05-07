@@ -3,7 +3,8 @@
   hosts: all
   vars:
   # added the remote_user: ansible here. adding it to molecule config did not work.
-  # It was advised in a githib issue not to add become vars in molecule.yml
+  # It was advised in the below issue not to add become vars in molecule.yml
+  # https://github.com/ansible/molecule/issues/983
   remote_user: vagrant
   become: yes
   become_method: sudo
