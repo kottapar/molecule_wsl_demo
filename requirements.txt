@@ -55,7 +55,7 @@ pytest==4.4.0
 python-dateutil==2.8.0
 python-gilt==1.2.1
 python-vagrant==0.5.15
-PyYAML==3.13
+PyYAML==5.4
 req==1.0.0
 requests==2.21.0
 rsa==4.0
